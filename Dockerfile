@@ -34,8 +34,10 @@ COPY --from=build-js /build/static/js/dist/ ./static/js/dist/
 COPY --from=build-js /build/static/css/dist/ ./static/css/dist/
 COPY --from=build-golang /go/src/github.com/gophish/gophish/config.json ./
 RUN chown app. config.json
+RUN chmod +x /opt/gophish/gophish
+RUN chmod +x /opt/gophish/docker/run.sh
 
-RUN setcap 'cap_net_bind_service=+ep' /opt/gophish/gophish
+# RUN setcap 'cap_net_bind_service=+ep' /opt/gophish/gophish
 
 USER app
 RUN sed -i 's/127.0.0.1/0.0.0.0/g' config.json
