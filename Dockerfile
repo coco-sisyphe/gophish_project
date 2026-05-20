@@ -14,6 +14,7 @@ FROM golang:1.15.2 AS build-golang
 
 WORKDIR /go/src/github.com/gophish/gophish
 COPY . .
+RUN chmod +x docker/run.sh
 RUN go get -v && go build -v
 
 
