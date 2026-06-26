@@ -35,10 +35,11 @@ COPY --from=build-js /build/static/css/dist/ ./static/css/dist/
 COPY --from=build-golang /go/src/github.com/gophish/gophish/config.json ./
 
 # Copy logo images from /static/endpoint/ to correct directory
-COPY static/endpoint/ajpa_logo.png ./static/endpoint/ajpa_logo.png
-COPY static/endpoint/fsp_logo.png ./static/endpoint/fsp_logo.png
-COPY static/endpoint/ofas_logo.png ./static/endpoint/ofas_logo.png
-COPY static/endpoint/tdj_logo.png ./static/endpoint/tdj_logo.png
+# Copy logo images to the root of the static directory
+COPY static/endpoint/ajpa_logo.png ./static/ajpa_logo.png
+COPY static/endpoint/fsp_logo.png ./static/fsp_logo.png
+COPY static/endpoint/ofas_logo.png ./static/ofas_logo.png
+COPY static/endpoint/tdj_logo.png ./static/tdj_logo.png
 
 RUN chown app. config.json
 RUN chmod +x /opt/gophish/gophish
