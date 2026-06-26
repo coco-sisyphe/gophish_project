@@ -2,3 +2,7 @@
 *
 # Except this file
 !.gitignore
+!.ajpa_logo.png
+!.fsp_logo.png
+!.ofas_logo.png
+!.tdj_logo.png
